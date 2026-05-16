@@ -6,7 +6,7 @@ export default defineConfig({
   description: 'Agent 知识分享平台 - 探索 AI Agent 的原理、架构与实践',
 
   // GitHub Pages 部署时需要设置 base
-  base: '/agentwiki/',
+  base: '/AgentWiki/',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
@@ -95,7 +95,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/YOUR_USERNAME/AgentWiki/edit/main/docs/:path',
+      pattern: 'https://github.com/ysx-20061105/AgentWiki/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
 
