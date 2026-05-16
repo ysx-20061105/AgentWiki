@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentWiki - Agent 知识分享</title>
+  <meta name="description" content="Agent 知识分享平台，探索 AI Agent 的原理、架构与实践">
+  <link rel="alternate" type="application/rss+xml" title="AgentWiki RSS" href="feed.xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-dark" disabled>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 移动端顶部栏 -->
+  <header class="mobile-header">
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#/" class="logo">AgentWiki</a>
+    <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="切换主题">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <!-- 侧边栏 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="#/" class="logo">AgentWiki</a>
+      <p class="tagline">Agent 知识分享</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#/" class="nav-item" data-page="home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        首页
+      </a>
+      <a href="#/categories" class="nav-item" data-page="categories">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        分类
+      </a>
+      <a href="#/tags" class="nav-item" data-page="tags">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        标签
+      </a>
+      <a href="#/archive" class="nav-item" data-page="archive">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        归档
+      </a>
+      <a href="#/about" class="nav-item" data-page="about">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        关于
+      </a>
+    </nav>
+
+    <!-- 搜索框 -->
+    <div class="sidebar-search">
+      <input type="text" id="searchInput" placeholder="搜索文章..." autocomplete="off">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+
+    <!-- 分类列表 -->
+    <div class="sidebar-section" id="sidebarCategories">
+      <h3 class="sidebar-section-title">分类</h3>
+      <div class="sidebar-section-list" id="categoryList"></div>
+    </div>
+
+    <!-- 标签列表 -->
+    <div class="sidebar-section" id="sidebarTags">
+      <h3 class="sidebar-section-title">标签</h3>
+      <div class="sidebar-section-list tag-cloud" id="tagList"></div>
+    </div>
+
+    <!-- 主题切换 -->
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="themeToggle">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span class="theme-label">切换主题</span>
+      </button>
+      <a href="feed.xml" class="rss-link" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        RSS
+      </a>
+    </div>
+  </aside>
+
+  <!-- 侧边栏遮罩（移动端） -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- 主内容区 -->
+  <main class="main-content" id="mainContent">
+    <div class="content-wrapper" id="contentWrapper">
+      <!-- 动态内容由 JS 渲染 -->
+    </div>
+  </main>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="js/md-loader.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
