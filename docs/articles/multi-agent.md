@@ -1,7 +1,8 @@
 ---
 title: 多 Agent 系统设计模式
 date: 2026-05-12
-category: 架构设计
+categories:
+  - Agent实践
 tags: [Multi-Agent, 架构, 协作, 设计模式]
 summary: 探讨多 Agent 协作的常见设计模式，包括主从模式、对等协作、竞争模式等，帮助你选择合适的架构方案。
 ---

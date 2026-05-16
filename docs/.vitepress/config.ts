@@ -18,35 +18,12 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '文章', link: '/articles/' },
-      { text: '分类', link: '/categories' },
-      { text: '标签', link: '/tags' },
-      { text: '归档', link: '/archive' },
-      { text: '关于', link: '/about' }
+      { text: 'Agent', link: '/agent' },
+      { text: 'FastAPI', link: '/fastapi' },
+      { text: 'Agent实践', link: '/agent-practice' }
     ],
 
-    sidebar: {
-      '/articles/': [
-        {
-          text: '基础知识',
-          items: [
-            { text: 'AI Agent 基础概念', link: '/articles/agent-basics' }
-          ]
-        },
-        {
-          text: '开发工具',
-          items: [
-            { text: 'LangChain 入门指南', link: '/articles/langchain-guide' }
-          ]
-        },
-        {
-          text: '架构设计',
-          items: [
-            { text: '多 Agent 系统设计模式', link: '/articles/multi-agent' }
-          ]
-        }
-      ]
-    },
+    sidebar: {},
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/' }

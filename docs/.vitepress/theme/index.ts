@@ -5,6 +5,7 @@ import Categories from './components/Categories.vue'
 import Tags from './components/Tags.vue'
 import Archive from './components/Archive.vue'
 import ArticleList from './components/ArticleList.vue'
+import HomeArticles from './components/HomeArticles.vue'
 
 export default {
   extends: DefaultTheme,
@@ -13,5 +14,6 @@ export default {
     app.component('Tags', Tags)
     app.component('Archive', Archive)
     app.component('ArticleList', ArticleList)
+    app.component('HomeArticles', HomeArticles)
   }
 } satisfies Theme

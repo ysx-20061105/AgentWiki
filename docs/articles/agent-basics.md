@@ -1,7 +1,8 @@
 ---
 title: AI Agent 基础概念
 date: 2026-05-16
-category: 基础知识
+categories:
+  - Agent
 tags: [Agent, LLM, 入门]
 summary: 介绍 AI Agent 的基本概念、核心组成和工作原理，帮助初学者快速建立对 Agent 的整体认知。
 ---

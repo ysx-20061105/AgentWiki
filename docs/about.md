@@ -35,7 +35,8 @@ AgentWiki 是一个开源项目，欢迎通过 GitHub Pull Request 贡献文章�
 ---
 title: 文章标题
 date: 2026-05-16
-category: 分类名称
+categories:
+  - 分类名称
 tags: [标签1, 标签2]
 summary: 一句话摘要
 ---

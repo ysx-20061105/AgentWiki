@@ -1,7 +1,8 @@
 ---
 title: LangChain 入门指南
 date: 2026-05-14
-category: 开发工具
+categories:
+  - FastAPI
 tags: [LangChain, Python, Agent, 开发]
 summary: 从零开始学习 LangChain 框架，掌握构建 AI Agent 应用的核心组件和最佳实践。
 ---

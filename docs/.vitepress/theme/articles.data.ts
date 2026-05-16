@@ -20,7 +20,9 @@ export default createContentLoader('articles/*.md', {
         title: frontmatter.title || '',
         url,
         date: String(frontmatter.date || '').slice(0, 10),
-        category: frontmatter.category || '未分类',
+        category: Array.isArray(frontmatter.categories)
+          ? frontmatter.categories[0] || '未分类'
+          : frontmatter.category || '未分类',
         tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
         summary: frontmatter.summary || ''
       }))

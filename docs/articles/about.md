@@ -13,10 +13,9 @@ AgentWiki 是一个专注于 AI Agent 技术的知识分享平台。我们致力
 ## 内容方向
 
 - **基础知识**：Agent 核心概念、原理和架构
-- **开发工具**：LangChain、LlamaIndex、CrewAI 等框架教程
+- **开发工具**：LangChain、OpenAI SDK、OpenAI Agent SDK 等框架教程
 - **架构设计**：多 Agent 系统、RAG、工作流设计
 - **行业应用**：Agent 在各领域的落地实践
-- **前沿探索**：最新论文解读和技术趋势
 
 ## 如何贡献
 
