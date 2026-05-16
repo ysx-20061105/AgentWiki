@@ -1,27 +1,36 @@
 # AgentWiki
 
-Agent 知识分享平台 - 基于 GitHub Pages 的静态网站
-
-## 特性
-
-- 纯前端方案，无需构建工具，上传 Markdown 即可更新
-- 分类、标签、搜索、归档、RSS 全功能支持
-- 暗色/亮色主题切换
-- 响应式设计，移动端友好
-- GitHub Action 自动更新文章索引
+Agent 知识分享平台 - 基于 VitePress 构建
 
 ## 快速开始
 
-### 1. Fork 或 Clone 本仓库
+### 安装依赖
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AgentWiki.git
-cd AgentWiki
+npm install
 ```
 
-### 2. 添加文章
+### 本地开发
 
-在 `articles/` 目录创建 Markdown 文件：
+```bash
+npm run dev
+```
+
+### 构建
+
+```bash
+npm run build
+```
+
+### 预览构建结果
+
+```bash
+npm run preview
+```
+
+## 添加文章
+
+在 `docs/articles/` 目录创建 Markdown 文件：
 
 ```markdown
 ---
@@ -35,54 +44,34 @@ summary: 一句话摘要
 正文内容...
 ```
 
-### 3. 更新索引
+添加新文章后需要更新侧边栏配置：编辑 `docs/.vitepress/config.ts` 中的 `sidebar` 部分。
 
-**方式一（自动）**: 推送到 main 分支后，GitHub Action 会自动更新 `index.json` 和 `feed.xml`
+## 部署到 GitHub Pages
 
-**方式二（手动）**: 本地运行
+1. 推送代码到 GitHub
+2. 进入仓库 Settings > Pages
+3. Source 选择 **GitHub Actions**
+4. 推送到 main 分支会自动触发构建和部署
 
-```bash
-node .github/scripts/generate-index.js
-```
-
-### 4. 部署
-
-1. 进入仓库 Settings > Pages
-2. Source 选择 `Deploy from a branch`
-3. Branch 选择 `main`，目录选择 `/ (root)`
-4. 保存后等待部署完成
-
-访问 `https://YOUR_USERNAME.github.io/AgentWiki/` 即可
+如需自定义域名，取消注释 `docs/.vitepress/config.ts` 中的 `base` 配置。
 
 ## 目录结构
 
 ```
-├── index.html              # 主页面
-├── css/style.css           # 样式
-├── js/
-│   ├── app.js              # 路由和主逻辑
-│   ├── md-loader.js        # Markdown 解析
-│   ├── search.js           # 搜索功能
-│   └── sidebar.js          # 侧边栏
-├── articles/               # 文章目录
-├── index.json              # 文章索引（自动生成）
-├── feed.xml                # RSS 订阅（自动生成）
-└── 404.html                # 自定义 404
+├── docs/
+│   ├── .vitepress/
+│   │   ├── config.ts           # VitePress 配置
+│   │   └── theme/              # 自定义主题
+│   ├── articles/               # 文章目录
+│   ├── index.md                # 首页
+│   ├── categories.md           # 分类页
+│   ├── tags.md                 # 标签页
+│   ├── archive.md              # 归档页
+│   └── about.md                # 关于页
+├── .github/workflows/deploy.yml
+├── package.json
+└── README.md
 ```
-
-## 路由说明
-
-| 路由 | 说明 |
-|------|------|
-| `#/` | 首页 |
-| `#/article/{slug}` | 文章详情 |
-| `#/categories` | 分类列表 |
-| `#/category/{name}` | 分类文章 |
-| `#/tags` | 标签云 |
-| `#/tag/{name}` | 标签文章 |
-| `#/archive` | 归档 |
-| `#/about` | 关于 |
-| `#/search?q=xxx` | 搜索 |
 
 ## 许可
 

@@ -128,5 +128,5 @@ Execute:
 
 了解了 Agent 的基础概念后，建议继续阅读：
 
-- [LangChain 入门指南](#/article/langchain-guide) - 学习如何用 LangChain 构建 Agent
-- [多 Agent 系统设计](#/article/multi-agent) - 探索多 Agent 协作模式
+- [LangChain 入门指南](/articles/langchain-guide) - 学习如何用 LangChain 构建 Agent
+- [多 Agent 系统设计](/articles/multi-agent) - 探索多 Agent 协作模式
